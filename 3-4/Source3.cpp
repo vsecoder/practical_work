@@ -9,6 +9,7 @@ int main()
 
     double a, b, c, d, e, x;            // переменные a, b, c, d, e и x
     double x_square, x_cube, x_quartic; // переменные x^2, x^3, x^4
+    double result;                      // переменная результата
 
     cout << "Введите значение переменной a: ";
     cin >> a;
@@ -29,12 +30,12 @@ int main()
     cin >> x;
 
     // Вычисляем
-    double x_square = x * x;
-    double x_cube = x_square * x;
-    double x_quartic = x_cube * x;
+    x_square = x * x;
+    x_cube = x_square * x;
+    x_quartic = x_cube * x;
 
     // Вычисляем значение выражения
-    double result = a * x_quartic - b * x_cube + c * x_square - d * x + e;
+    result = a * x_quartic - b * x_cube + c * x_square - d * x + e;
 
     cout << "Значение выражения: " << result << endl;
 
