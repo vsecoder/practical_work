@@ -23,6 +23,12 @@ int main()
         return 0;
     }
 
+    if (AB>=BC)
+    {
+        cout << "Ошибка: это невозможно.";
+        return 0;
+    }
+
     AC = sqrt(pow(BC, 2) - pow(AB, 2));
     double cos_A = AC / BC;
     double tan_A = AB / AC;
