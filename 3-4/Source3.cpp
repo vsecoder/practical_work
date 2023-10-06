@@ -30,9 +30,9 @@ int main()
     cin >> x;
 
     // Вычисляем
-    x_square = x * x;
-    x_cube = x_square * x;
-    x_quartic = x_cube * x;
+    x_square = pow(x, 2);
+    x_cube = pow(x, 3);
+    x_quartic = pow(x, 4);
 
     // Вычисляем значение выражения
     result = a * x_quartic - b * x_cube + c * x_square - d * x + e;
