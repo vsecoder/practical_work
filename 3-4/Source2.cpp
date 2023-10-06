@@ -23,7 +23,7 @@ int main()
         return 0;
     }
 
-    AC = sqrt(pow(AB, 2) - pow(BC, 2));
+    AC = sqrt(pow(BC, 2) - pow(AB, 2));
     double cos_A = AC / BC;
     double tan_A = AB / AC;
 
