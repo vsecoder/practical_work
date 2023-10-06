@@ -7,7 +7,7 @@ int main()
     setlocale(LC_ALL, "Russian");
     // 5
 
-    double M, N, result; // переменные M и N и result
+    int M, N; double result; // переменные M и N и result
 
     cout << "Введите значение M: ";
     cin >> M;
@@ -28,7 +28,7 @@ int main()
     }
 
     // Вычисляем результат деления M на N
-    result = M / N;
+    result = float(M) / N;
 
     cout << "Результат: " << result << endl;
 
