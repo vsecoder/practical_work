@@ -29,8 +29,9 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     // 2
-    int cost, type, count;
+    int cost, count;
     string r;
+    char type;
     string hr = "-----------";
 
     cout << "Введите цену товара: ";
@@ -53,7 +54,6 @@ int main()
             cout << "Ручка шариковая" << endl;
             cout << "Шт." << cost << " " << r << endl;
         }
-        cout << hr << endl;
         break;
 
     case 'w':
@@ -64,7 +64,6 @@ int main()
             cout << "Шт." << cost << " " << r << endl;
             count--;
         }
-        cout << hr << endl;
         break;
 
     case 'd':
@@ -75,12 +74,13 @@ int main()
             cout << "Шт." << cost << " " << r << endl;
             count--;
         } while (count > 0);
-        cout << hr << endl;
         break;
 
     default:
         break;
     }
+
+    cout << hr << endl;
 
     return 0;
 }
