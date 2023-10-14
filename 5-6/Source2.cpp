@@ -7,14 +7,14 @@ int main()
     setlocale(LC_ALL, "Russian");
     // 2
 
-    double a, b, discriminant, x1, x2;
+    double a, b=0, c, discriminant, x1, x2;
 
     cout << "Введите значение a: ";
     cin >> a;
     cout << "Введите значение b: ";
-    cin >> b;
+    cin >> c;
 
-    discriminant = b * b - 4 * a;
+    discriminant = b * b - 4 * c * a;
 
     if (discriminant > 0) {
         x1 = (-b + sqrt(discriminant)) / (2 * a);
