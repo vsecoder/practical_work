@@ -1,46 +1,42 @@
-using namespace std;
 #include <iostream>
-#include <cmath>
-
+#include <math.h>
+using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
     // 1
-
-    int n;
-    int m[6];
-    bool palindrome = false, luck = false;
-
-    cin >> n;
-    n = abs(n);
-
-    if (n < 100000 || n > 999999) {
-        cout << "Invalid input";
+    int N;
+    cout << "Введите 6-ти значное число: " << endl;
+    cin >> N;
+    N = abs(N);
+    if (N < 100000 && N>999999) {
+        cout << "Вы ввели неправильное число: " << endl;
+        cin >> N;
+    }
+    int ch = 0, ost, sum1 = 0, sum2 = 0;
+    while (N != 0) {
+        ost = N % 10;
+        ch = ch * 10 + ost;
+        if (N > 1000 && N < 999999) {
+            sum1 += ost;
+        }
+        else if (N < 1000) {
+            sum2 += ost;
+        }
+        N /= 10;
+    }
+    if (ch == N) {
+        cout << "Число палиндром и счастливое. " << endl;
+        return 0;
+    }
+    else if (sum1 == sum2 && ch != N) {
+        cout << "Число счастливое. " << endl;
+        return 0;
+    }
+    else if (sum1 != sum2 && ch != N) {
+        cout << "Число ни палиндром, ни счастливое. " << endl;
         return 0;
     }
 
-    // сделать потом через цикл
-    m[0] = n / 100000;
-    m[1] = (n % 100000) / 10000;
-    m[2] = (n % 10000) / 1000;
-    m[3] = (n % 1000) / 100;
-    m[4] = (n % 100) / 10;
-    m[5] = n % 10;
-
-    if (m[0] + m[1] + m[2] == m[3] + m[4] + m[5]) {
-        luck = true;
-    }
-
-    if (
-        m[0] == m[5] &&
-        m[1] == m[4] &&
-        m[2] == m[3]
-    ) {
-        palindrome = true;
-    }
-
-    cout << "Счастливое: " << luck << endl;
-    cout << "Палиндром: " << palindrome << endl;
-
-    return 0;
 }
+
