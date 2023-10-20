@@ -6,7 +6,7 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     // 1
-    int input, range, range1, range2;
+    int input, range, range1, range2, save;
 
     cout << "1. y = x^2" << endl;
     cout << "2. y = ln(x)" << endl;
@@ -22,9 +22,10 @@ int main()
 
     input = abs(input);
 
-    if (range1 >= range2) {
-        cout << "Ошибка ввода!";
-        return 0;
+    if (range1 > range2) {
+        save = range1;
+        range1 = range2;
+        range2 = save;
     }
 
     cout << "X Y" << endl;
