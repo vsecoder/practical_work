@@ -6,7 +6,7 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     // 1
-    int input, range;
+    int input, range, range1, range2;
 
     cout << "1. y = x^2" << endl;
     cout << "2. y = ln(x)" << endl;
@@ -16,25 +16,29 @@ int main()
     cout << "Введите номер уравнения: " << endl;
     cin >> input;
 
-    cout << "Введите диапазон: " << endl;
-    cin >> range;
+    cout << "Введите диапазон [a, b]: " << endl;
+    cin >> range1;
+    cin >> range2;
 
     input = abs(input);
-    range = abs(range);
 
+    if (range1 >= range2) {
+        cout << "Ошибка ввода!";
+        return 0;
+    }
+
+    cout << "X Y" << endl;
     switch (input)
     {
     case 1:
-        cout << "X Y" << endl;
-        for (int x = 0; x < range; x++)
+        for (int x = range1; x <= range2; x++)
         {
             cout << x << " " << pow(x, 2) << endl;
         }
         break;
 
     case 2:
-        cout << "X Y" << endl;
-        for (int x = 0; x < range; x++)
+        for (int x = range1; x <= range2; x++)
         {
             cout << x << " " << log(x) << endl;
         }
@@ -47,16 +51,14 @@ int main()
         cout << "Введите b: " << endl;
         cin >> b;
 
-        cout << "X Y" << endl;
-        for (int x = 0; x < range; x++)
+        for (int x = range1; x <= range2; x++)
         {
             cout << x << " " << k * pow(x, 2) + b << endl;
         }
         break;
 
     case 4:
-        cout << "X Y" << endl;
-        for (int x = 0; x < range; x++)
+        for (int x = range1; x <= range2; x++)
         {
             cout << x << " " << x / 2.0 << endl;
         }
