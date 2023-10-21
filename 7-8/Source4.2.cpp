@@ -9,6 +9,7 @@ int main()
     float x, eps, F, a, n;
     cin >> x >> eps;
 
+    x *= 3.14 / 180;
     F = x;
     a = x;
     n = 2;
@@ -20,7 +21,7 @@ int main()
     } while (abs(x) >= eps);
 
     cout << "F = " << F << endl;
-    cout << "sin x = " << x << endl;
+    cout << "sin x = " << sin(x) << endl;
 
     return 0;
 }
