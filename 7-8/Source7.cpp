@@ -15,17 +15,17 @@ int main() {
         return 1;
     }
 
-    double S = 0.0;
+    double S = 1.0;
     double znak = -1.0;
     double slug = 1.0;
     double n = 1;
     double z = 2;
     double n2 = 0;
     double n3 = 0;
+    double save = 1.0;
 
-
-    while (slug >= f) {
-        S += slug;
+    do {
+        save = slug;
         znak = -znak;
         z = z + n2;
         n++;
@@ -33,7 +33,8 @@ int main() {
         n3 += 2;
         cout << "S += " << znak * n3 << " / " << z << " * " << pow(3, n2) << endl;
         slug = (znak * n3) / (pow(3, n2) * z);
-    }
+        S += slug;
+    } while (save >= f);
 
     cout << "S = " << S << endl;
 
