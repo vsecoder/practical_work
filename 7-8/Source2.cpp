@@ -7,7 +7,7 @@ string rubles(int cost)
 
     if ((cost % 100) >= 10 && (cost % 100) <= 20)
     {
-        return "рубль";
+        return "рублей";
     }
     else
     {
