@@ -5,10 +5,11 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     // 1
-    int N;
+    int N, save;
     cout << "Введите 6-ти значное число: " << endl;
     cin >> N;
     N = abs(N);
+    save = N;
     if (N < 100000 && N>999999) {
         cout << "Вы ввели неправильное число: " << endl;
         cin >> N;
@@ -25,15 +26,15 @@ int main()
         }
         N /= 10;
     }
-    if (ch == N) {
+    if (ch == save) {
         cout << "Число палиндром и счастливое. " << endl;
         return 0;
     }
-    else if (sum1 == sum2 && ch != N) {
+    else if (sum1 == sum2 && ch != save) {
         cout << "Число счастливое. " << endl;
         return 0;
     }
-    else if (sum1 != sum2 && ch != N) {
+    else if (sum1 != sum2 && ch != save) {
         cout << "Число ни палиндром, ни счастливое. " << endl;
         return 0;
     }
