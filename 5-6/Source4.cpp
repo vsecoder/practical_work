@@ -11,8 +11,8 @@ int main()
     cout << "1 - Чай - 150 рублей" << endl;
     cout << "2 - Кофе - 230 рублей" << endl;
     cout << "3 - Минеральная вода - 50 рублей" << endl;
-    user_choice = abs(user_choice);
     cin >> user_choice;
+    user_choice = abs(user_choice);
     cout << "Выберите кол-во товара: " << endl;
     cin >> count;
     count = abs(count);
@@ -44,7 +44,7 @@ int main()
         cout << "Ваша скидка составляет 40%" << endl;
         discount = 40;
     }
-    
+
     cout << "Чек на покупку товара: " << endl;
     switch (user_choice) {
     case 1:
@@ -58,8 +58,7 @@ int main()
         cout << "Минеральная вода - 50 рублей, в количестве " << count << endl;
         break;
     }
-    
+
     cout << "Стоимость заказа составляет: " << sum << endl;
     cout << "С учетом скидки стоимость заказа составляет: " << sum - (sum * (discount / 100)) << endl;
 }
-
