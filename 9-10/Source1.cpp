@@ -10,10 +10,10 @@ int main()
     int Mas[l];
 
     for (int i = 0; i < l; i++) {
-        Mas[i] = rand()%20 + -5;
+        Mas[i] = rand() % 20 + -5;
     }
 
-    int sum = 0, kol = 0;
+    int sum = 0, count = 0;
 
     for (int i = 0; i < l; i++) {
         if (Mas[i] <= 5 && Mas[i] >= -5) {
@@ -21,7 +21,7 @@ int main()
         }
 
         if (Mas[i] % 2 != 0) {
-            kol += 1;
+            count += 1;
         }
     }
 
@@ -32,7 +32,7 @@ int main()
     cout << " ]" << endl;
 
     cout << "Сумма от 5 до -5 в массиве: " << sum << endl;
-    cout << "Кол-во нечётных чисел: " << kol << endl;
+    cout << "Кол-во нечётных чисел: " << count << endl;
 
     return 0;
 }
