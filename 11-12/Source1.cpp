@@ -4,6 +4,13 @@
 using namespace std;
 
 
+int* randMas(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i] = rand() % 101 + 1;
+    }
+    return arr;
+}
+
 void printMas(int arr[], int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
@@ -56,7 +63,7 @@ int* insertSort(int arr[], int size) {
 }
 
 
-int main() {  
+int main() {
     setlocale(LC_ALL, "Russian");
     srand(time(0));
     // 1
@@ -64,18 +71,25 @@ int main() {
 
     int arr[n];
 
-    for (int i = 0; i < n; i++) {
-        arr[i] = rand() % 101 + 1;
-    }
-
     cout << "Ваш массив: ";
+    randMas(arr, n);
     printMas(arr, n);
 
     cout << "Сортировка пузырьком: ";
     printMas(bubbleSort(arr, n), n);
 
+
+    cout << "Ваш массив: ";
+    randMas(arr, n);
+    printMas(arr, n);
+
     cout << "Сортировка выбором: ";
     printMas(choiceSort(arr, n), n);
+
+
+    cout << "Ваш массив: ";
+    randMas(arr, n);
+    printMas(arr, n);
 
     cout << "Сортировка вставками: ";
     printMas(insertSort(arr, n), n);
