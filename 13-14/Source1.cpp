@@ -3,14 +3,14 @@
 using namespace std;
 
 // Функция для рассчета суммы
-int summa(int number, int sum) {
+int summ(int number, int sum) {
     return sum + number;
 }
 
 // Функция для проверки числа на 0 и рассчета суммы
-void chesk(int number, int& sum) {
+void cheсk(int number, int& sum) {
     if (number != 0) {
-        sum = summa(number, sum);
+        sum = summ(number, sum);
     }
 }
 
@@ -26,7 +26,7 @@ int main() {
     do {
         cout << "Введите число (что бы закончить введите 0): ";
         cin >> number;
-        chesk(number, sum);
+        cheсk(number, sum);
     } while (number);
 
     output(sum);
