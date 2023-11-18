@@ -18,6 +18,8 @@ void printMas(int arr[], int size) {
     cout << endl;
 }
 
+
+// сравнение каждого с каждым
 int* bubbleSort(int arr[], int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
@@ -30,6 +32,7 @@ int* bubbleSort(int arr[], int size) {
 }
 
 
+// поиск минимумов и сдвиг их в начало
 int* choiceSort(int arr[], int size) {
     for (int i = 0; i < size - 1; ++i)
     {
@@ -47,6 +50,7 @@ int* choiceSort(int arr[], int size) {
 }
 
 
+// берём элемент массива и вставляем его в нужное место 
 int* insertSort(int arr[], int size) {
     for (int i = 1; i < size; i++) {
         int key = arr[i];
