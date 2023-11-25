@@ -1,0 +1,9 @@
+void init_rand(int mas[], const int size1);
+void init_keyboard(int mas[], const int size1);
+void init_from_num(int mas[], const int size1);
+void show(int mas[], const int size1);
+void min_mass(int mas[], const int size1);
+void max_mass(int mas[], const int size1);
+void bubble_sort(int mas[], const int size1);
+void sum_mass(int mas[], const int size1);
+void razn_mass(int mas[], const int size1);
