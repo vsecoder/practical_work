@@ -1,5 +1,4 @@
 #include <iostream>
-#include <limits>
 
 using namespace std;
 
@@ -42,8 +41,20 @@ bool isCellEmpty(char** board, int row, int col) {
     return board[row][col] == ' ';
 }
 
+bool isHaveMoovs(char** board, int size) {
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            if (board[i][j] == ' ') {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 bool checkWin(char** board, int size, char player) {
     bool win = true;
+    // главная диагональ
     for (int i = 0; i < size; ++i) {
         if (board[i][i] != player) {
             win = false;
@@ -53,6 +64,7 @@ bool checkWin(char** board, int size, char player) {
     if (win) return true;
 
     win = true;
+    // побочная диагональ
     for (int i = 0; i < size; ++i) {
         if (board[i][size - 1 - i] != player) {
             win = false;
@@ -61,10 +73,22 @@ bool checkWin(char** board, int size, char player) {
     }
     if (win) return true;
 
+    // строки и столбцы
     for (int i = 0; i < size; ++i) {
         win = true;
         for (int j = 0; j < size; ++j) {
-            if (board[i][j] != player || board[j][i] != player) {
+            if (board[i][j] != player) {
+                win = false;
+                break;
+            }
+        }
+        if (win) return true;
+    }
+
+    for (int i = 0; i < size; ++i) {
+        win = true;
+        for (int j = 0; j < size; ++j) {
+            if (board[j][i] != player) {
                 win = false;
                 break;
             }
@@ -126,6 +150,12 @@ int main() {
         if (checkWin(board, size, symbol)) {
             printBoard(board, size);
             cout << "Игрок " << (currentPlayer == 1 ? player1 : player2) << " победил!" << endl;
+            break;
+        }
+
+        if (!isHaveMoovs(board, size)) {
+            printBoard(board, size);
+            cout << "Ничья, расходимся!" << endl;
             break;
         }
 
