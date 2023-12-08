@@ -25,7 +25,7 @@ void init_keyboard(int mass[size1][size2]) {
     }
 }
 void init_from_num(int mass[size1][size2]) {
-    cout << "Ââåäèòå ñ êàêîãî ÷èñëà çàïîëíèòü ìàññèâ: " << endl;
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ ÐºÐ°ÐºÐ¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð° Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð²: " << endl;
     int num;
     cin >> num;
     for (int i = 0; i < size1; i++) {
@@ -59,7 +59,7 @@ void min_mass(int mass[size1][size2]) {
             }
         }
     }
-    cout << "Ìèíèìàëüíîå ÷èñëî ìàññèâà: " << min << endl;
+    cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << min << endl;
 }
 void max_mass(int mass[size1][size2]) {
     int max = mass[0][0];
@@ -70,7 +70,7 @@ void max_mass(int mass[size1][size2]) {
             }
         }
     }
-    cout << "Ìàêñèìàëüíîå ÷èñëî ìàññèâà: " << max << endl;
+    cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << max << endl;
 }
 void min_str(int mass[size1][size2]) {
     for (int i = 0; i < size1; i++) {
@@ -80,7 +80,7 @@ void min_str(int mass[size1][size2]) {
                 min = mass[i][j];
             }
         }
-        cout << "Ìèíèìàëüíîå çíà÷åíèå ñòðîêè " << i + 1 << "  " << min << endl;
+        cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÑ‚Ñ€Ð¾ÐºÐ¸ " << i + 1 << "  " << min << endl;
     }
 }
 void max_str(int mass[size1][size2]) {
@@ -91,7 +91,7 @@ void max_str(int mass[size1][size2]) {
                 max = mass[i][j];
             }
         }
-        cout << "Ìàêñèìàëüíîå çíà÷åíèå ñòðîêè " << i + 1 << "  " << max << endl;
+        cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ ÑÑ‚Ñ€Ð¾ÐºÐ¸ " << i + 1 << "  " << max << endl;
     }
 }
 void sum_mass(int mass[size1][size2]) {
@@ -101,7 +101,7 @@ void sum_mass(int mass[size1][size2]) {
             res += mass[i][j];
         }
     }
-    cout << "Ñóììà âñåõ ýëåìåíòîâ ìàññèâà: " << res << endl;
+    cout << "Ð¡ÑƒÐ¼Ð¼Ð° Ð²ÑÐµÑ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << res << endl;
 }
 void razn_mass(int mass[size1][size2]) {
     int res = mass[0][0];
@@ -110,5 +110,5 @@ void razn_mass(int mass[size1][size2]) {
             res -= mass[i][j];
         }
     }
-    cout << "Ðàçíîñòü âñåõ ýëåìåíòîâ ìàññèâà: " << res << endl;
+    cout << "Ð Ð°Ð·Ð½Ð¾ÑÑ‚ÑŒ Ð²ÑÐµÑ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << res << endl;
 }
