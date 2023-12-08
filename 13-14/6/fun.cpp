@@ -11,7 +11,7 @@ void init_keyboard(int mass[10], const int size) {
     }
 }
 void init_from_num(int mass[10],const int size) {
-    cout << "Ââåäèòå îò êàêîãî ÷èñëà çàïîëíÿòü ìàññèâ: " << endl;
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ñ‚ ÐºÐ°ÐºÐ¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð° Ð·Ð°Ð¿Ð¾Ð»Ð½ÑÑ‚ÑŒ Ð¼Ð°ÑÑÐ¸Ð²: " << endl;
     int num;
     cin >> num;
     for (int i = 0; i < size; i++) {
@@ -32,7 +32,7 @@ void min_mass(int mass[], const int size) {
             min = mass[i];
         }
     }
-    cout << "Ìèíèìàëüíîå çíà÷åíèå ìàññèâà:" << min << endl;
+    cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << min << endl;
 }
 void max_mass(int mass[], const int size) {
     int max = mass[0];
@@ -41,7 +41,7 @@ void max_mass(int mass[], const int size) {
             max = mass[i];
         }
     }
-    cout << "Ìàêñèìàëüíîå ÷èñëî ìàññèâà: " << max << endl;
+    cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << max << endl;
 }
 void bubble_sort(int mass[], int size)
 {
@@ -59,12 +59,12 @@ void sum_mass(int mass[], const int size) {
     for (int i = 0; i < size; i++) {
         sum += mass[i];
     }
-    cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << sum << endl;
+    cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << sum << endl;
 }
 void razn_mass(int mass[], const int size) {
     int res = mass[0];
     for (int i = 0; i < size; i++) {
         res -= mass[i];
     }
-    cout << "Ðàçíîñòü ýëåìåíòîâ ìàññèâà: " << res << endl;
+    cout << "Ð Ð°Ð·Ð½Ð¾ÑÑ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << res << endl;
 }
