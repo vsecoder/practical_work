@@ -1,30 +1,47 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
 
 using namespace std;
 
 int main() {
-    const char* fileName = "numbers.txt";
+    setlocale(LC_ALL, "Russian");
+    // 6
+    const string fileName = "numbers.txt";
+    const string evenFileName = "even_numbers.txt";
+    const string oddFileName = "odd_numbers.txt";
 
     ifstream inputFile(fileName);
     if (!inputFile.is_open()) {
-        cout << "Ошибка открытия файла." << endl;
+        cerr << "Ошибка открытия файла." << endl;
         return 1;
     }
 
-    int numbers[10];
+    ofstream evenFile(evenFileName);
+    ofstream oddFile(oddFileName);
+
+    if (!evenFile.is_open() || !oddFile.is_open()) {
+        cerr << "Ошибка открытия файлов для записи." << endl;
+        return 1;
+    }
+
     int num;
+    int position = 1;
 
     while (inputFile >> num) {
-        cout << num << " ";
+        if (position % 2 == 0) {
+            evenFile << num << " ";
+        } else {
+            oddFile << num << " ";
+        }
+        position++;
     }
 
     inputFile.close();
+    evenFile.close();
+    oddFile.close();
 
-    cout << numbers;
-
-    // не готово
+    // Вывод успешного завершения
+    cout << "Файлы успешно созданы." << endl;
 
     return 0;
 }

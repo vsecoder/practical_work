@@ -6,8 +6,8 @@ using namespace std;
 int main() {
     setlocale(LC_ALL, "Russian");
     // 5
-    const char* file1Name = "a1.txt";
-    const char* file2Name = "a2.txt";
+    const string file1Name = "a1.txt";
+    const string file2Name = "a2.txt";
 
     ifstream file1(file1Name);
     ifstream file2(file2Name);
