@@ -4,25 +4,30 @@ using namespace std;
 
 int get_count(int digit, int size, int* digits) {
     int count = 0;
+
     for (int i = 0; i < size; i++) {
         if (digits[i] == digit) {
             count++;
         }
     }
+
     return count;
 }
 
 void func(int* digits, int size, int* save) {
     int check = 0;
+
     for (int i = 0; i < size; i++) {
         check = 0;
         int count = get_count(digits[i], size, digits);
+        
         for (int j = 0; j < i; j++) {
             if (digits[i] == save[j]) {
                 check = 1;
                 break;
             }
         }
+
         if (check == 0) {
             cout << "Число " << digits[i] << " встречается во втором массиве в количестве : " << count << endl;
             save[i] = digits[i];    
