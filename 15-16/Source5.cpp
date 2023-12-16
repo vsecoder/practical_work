@@ -50,33 +50,33 @@ int main() {
     cin >> m >> n;
 
     // Выделение памяти под массивы A, B и Result
-    int** arrA = new int*[m];
-    int** arrB = new int*[m];
+    int** arr1 = new int*[m];
+    int** arr2 = new int*[m];
     int** result = new int*[m];
 
     for (int i = 0; i < m; ++i) {
-        arrA[i] = new int[n];
-        arrB[i] = new int[n];
+        arr1[i] = new int[n];
+        arr2[i] = new int[n];
         result[i] = new int[n];
     }
 
     // Инициализация массивов A и B
-    cout << "Массив A" << endl;
-    initializeArray(arrA, m, n);
+    cout << "Массив 1" << endl;
+    initializeArray(arr1, m, n);
 
     cout << "Массив B" << endl;
-    initializeArray(arrB, m, n);
+    initializeArray(arr2, m, n);
 
     // Сложение массивов A и B
-    addArrays(arrA, arrB, result, m, n);
+    addArrays(arr1, arr2, result, m, n);
 
     // Вывод результата
     cout << "Сумма массивов равна" << endl;
     printArray(result, m, n);
 
     // Освобождение памяти
-    deleteArray(arrA, m);
-    deleteArray(arrB, m);
+    deleteArray(arr1, m);
+    deleteArray(arr2, m);
     deleteArray(result, m);
 
     return 0;

@@ -1,62 +1,95 @@
 #include <iostream>
+#include <time.h>
 
 using namespace std;
 
-// Функция для поиска цифры в массиве
-int countDigitOccurrences(int digit, int* arr, int size) {
+int count_same(int digit, int size, int* mass) {//Подсчет одинаковых элементов
     int count = 0;
-    for (int i = 0; i < size; ++i) {
-        if (arr[i] == digit) {
+    for (int i = 0; i < size; i++) {
+        if (mass[i] == digit) {
             count++;
         }
     }
     return count;
 }
 
+void init_mass(int* mass, int size) {//Заполнение массива
+    for (int i = 0; i < size; i++) {
+        mass[i] = rand() % 10 + 1;
+    }
+}
+
+void show(int* mass, int size) {//Вывод массива
+    for (int i = 0; i < size; i++) {
+        cout << mass[i] << " ";
+    }
+}
+
+void init_null(int* mass, int size) { //Заполнение массива для хранения нулями
+    for (int i = 0; i < size; i++) {
+        mass[i] = 0;
+    }
+}
+
+void fun(int* mass1, int size1, int* save1, int* mass2, int size2) {
+    int check = 0;
+    for (int i = 0; i < size1; i++) { //для подсчета одинаковых элементов во втором массиве
+        check = 0;
+        int count = count_same(mass1[i], size2, mass2); //Подсчет одинаковых элементов
+        for (int j = 0; j < i; j++) {
+            if (mass1[i] == save1[j]) { //Если элементы равны
+                check = 1;
+                break;
+
+            }
+        }
+        if (check == 0) { //Если счетчик не изменился выводим
+            cout << "Число " << mass1[i] << " встречается во втором массиве в количестве : " << count << endl;
+            save1[i] = mass1[i]; //Присваиваем значение 
+        }
+    }
+}
+
 int main() {
+    srand(time(0));
     setlocale(LC_ALL, "Russian");
     // 6
-    int m, n;
+    int size1, size2;
 
-    // Ввод размеров массивов
     cout << "Введите размер первого массива: ";
-    cin >> m;
+    cin >> size1;
+
+    int* mass1 = new int[size1];
+
+    init_mass(mass1, size1);
 
     cout << "Введите размер второго массива: ";
-    cin >> n;
+    cin >> size2;
 
-    // Выделение памяти под массивы A и B
-    int* arrA = new int[m];
-    int* arrB = new int[n];
+    int* mass2 = new int[size2];
+    init_mass(mass2, size2);
 
-    // Ввод элементов первого массива
-    cout << "Введите элементы первого массива:" << endl;
-    for (int i = 0; i < m; ++i) {
-        cin >> arrA[i];
-    }
+    cout << "Первый массив: " << endl;
+    show(mass1, size1);
 
-    // Ввод элементов второго массива
-    cout << "Введите элементы второго массива:" << endl;
-    for (int i = 0; i < n; ++i) {
-        cin >> arrB[i];
-    }
+    cout << endl << "Второй массив: " << endl;
+    show(mass2, size2);
+    cout << endl;
 
-    // Поиск и подсчет вхождений цифр
-    for (int i = 0; i < n; ++i) {
-        int digit = arrB[i];
-        int occurrencesInA = countDigitOccurrences(digit, arrA, m);
-        cout << "Цифра " << digit << " встречается в первом массиве " << occurrencesInA << " раз." << endl;
-    }
+    int* save1 = new int[size1];
+    init_null(save1, size1);
 
-    for (int i = 0; i < m; ++i) {
-        int digit = arrA[i];
-        int occurrencesInB = countDigitOccurrences(digit, arrB, n);
-        cout << "Цифра " << digit << " встречается во втором массиве " << occurrencesInB << " раз." << endl;
-    }
+    fun(mass1, size1, save1, mass2, size2);
+    cout << endl << endl << endl;
 
-    // Освобождение памяти
-    delete[] arrA;
-    delete[] arrB;
+    int check2 = 0;
+    int* save2 = new int[size2];
+    init_null(save2, size2);
+
+    fun(mass2, size2, save2, mass1, size1);
+
+    delete[] mass1;
+    delete[] mass2;
 
     return 0;
 }
