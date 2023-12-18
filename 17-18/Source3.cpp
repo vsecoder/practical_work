@@ -8,7 +8,7 @@ int main() {
     // 3
     cout << "Введите строку символов: ";
     string str;
-    cin >> str;
+    getline(cin, str);
 
     int position = str.find('.');
 

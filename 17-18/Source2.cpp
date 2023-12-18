@@ -8,7 +8,7 @@ int main() {
     // 2
     cout << "Введите строку символов: ";
     string str;
-    cin >> str;
+    getline(cin, str);
     int count = 0;
 
     cout << "Введите символ для поиска: ";

@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include <sstream>
+#include <openssl/sha.h>
 
 using namespace std;
 
@@ -14,6 +17,32 @@ struct User {
 void printMenu() {
     cout << "Выберите действие:" << endl;
     cout << "v - вход, a - авторизация, x - выход из системы" << endl;
+}
+
+string sha256(const string str){
+  unsigned char hash[SHA256_DIGEST_LENGTH];
+
+  SHA256_CTX sha256;
+  SHA256_Init(&sha256);
+  SHA256_Update(&sha256, str.c_str(), str.size());
+  SHA256_Final(hash, &sha256);
+
+  stringstream ss;
+
+  for(int i = 0; i < SHA256_DIGEST_LENGTH; i++){
+    ss << hex << setw(2) << setfill('0') << static_cast<int>( hash[i] );
+  }
+  return ss.str();
+}
+
+bool isUser(User users[], int userCount, const string lastName, const string firstName) {
+    for (int i = 0; i < userCount; ++i) {
+        if (users[i].lastName == lastName &&
+            users[i].firstName == firstName) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void registerUser(User users[], int& userCount) {
@@ -37,6 +66,13 @@ void registerUser(User users[], int& userCount) {
         return;
     }
 
+    if (isUser(users, userCount, users[userCount].lastName, users[userCount].firstName)) {
+        cout << "Пользователь с таким именем и фамилией уже есть." << endl;
+        return;
+    } 
+
+    users[userCount].password = sha256(users[userCount].password);
+
     outFile << users[userCount].lastName << " "
             << users[userCount].firstName << " "
             << users[userCount].password << endl;
@@ -51,7 +87,7 @@ bool loginUser(User users[], int userCount, const string lastName, const string 
     for (int i = 0; i < userCount; ++i) {
         if (users[i].lastName == lastName &&
             users[i].firstName == firstName &&
-            users[i].password == password) {
+            users[i].password == sha256(password)) {
             return true;
         }
     }
@@ -62,7 +98,7 @@ void changePassword(User users[], int userCount, const string lastName, const st
     for (int i = 0; i < userCount; ++i) {
         if (users[i].lastName == lastName &&
             users[i].firstName == firstName) {
-            users[i].password = newPassword;
+            users[i].password = sha256(newPassword);
 
             ofstream outFile("users.txt");
             if (!outFile.is_open()) {
